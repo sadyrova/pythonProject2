@@ -2,12 +2,10 @@ import re
 
 with open('MOCK_DATA.txt', encoding='utf-8') as file:
     content = file.read()
-    #print(content)
+    
 
-    # "[А-Я][а-я]+\s+[А-Я]\.[А-Я]\."
+    
     name_list= re.findall(r"(?:[A-Z][a-z-]+\s[A-Z][a-z]+|[A-Z][a-z-]+\s[A-Z][\'][A-Z][a-z]+)", content)
-    #name_list = re.findall(r"(?:[A-Z][a-z-]+\s[A-Z][a-z]+\s[A-Z][a-z]+)", content)
-
     with open("name_file.txt", "w") as file:
         for line in name_list:
             file.write(line + '\n')
